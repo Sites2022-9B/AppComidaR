@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:appcomida/routes/routes.dart';
+import 'package:practica_1/routes/routes.dart';
 
 void main() => runApp(const MyApp());
 

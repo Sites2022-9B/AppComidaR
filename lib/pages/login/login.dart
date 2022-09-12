@@ -1,5 +1,5 @@
-import 'package:appcomida/pages/login/sing_up.dart';
 import 'package:flutter/material.dart';
+import 'package:practica_1/routes/routes.dart';
 
 class LoginComida extends StatefulWidget {
   const LoginComida({Key? key, required this.title}) : super(key: key);

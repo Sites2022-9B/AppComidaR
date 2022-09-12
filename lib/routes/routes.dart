@@ -1,3 +1,3 @@
 // Pages(Login)
-export 'package:appcomida/pages/login/login.dart';
-export 'package:appcomida/pages/login/sing_up.dart';
+export 'package:practica_1/pages/login/login.dart';
+export 'package:practica_1/pages/login/sing_up.dart';
