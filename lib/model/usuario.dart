@@ -14,8 +14,8 @@ class Usuario {
     try {
       final respuesta = await http.Client()
           .get(Uri.http(
-              '10.0.2.2:8000', '/api/login', {'username': e, 'password': c}))
-          .timeout(Duration(seconds: 5));
+              '192.168.8.5:5000', '/api/login', {'username': e, 'password': c}))
+          .timeout(Duration(seconds: 8));
 
       print("RESPUESTA " + respuesta.body);
       return respuesta.body;
