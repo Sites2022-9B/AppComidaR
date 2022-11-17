@@ -89,7 +89,7 @@ class _AgregaPlatilloState extends State<AgregaPlatillo> {
                           categoria: _categoriaController.text,
                           status: '');
 
-                      bool respuesta = await platillo.registra("1");
+                      bool respuesta = await platillo.registra(_token!);
 
                       if (respuesta) {
                         ScaffoldMessenger.of(context).showSnackBar(

@@ -34,7 +34,7 @@ class Platillo {
       String precmin, String precmax, String cat) async {
     try {
       final respuesta = await http.Client()
-          .get(Uri.http('192.168.8.5:5000', '/api/platillosres', {
+          .get(Uri.http('192.168.43.145:5000', '/api/platillosres', {
             'rest_id': '1',
             'busq': busq,
             'vmin': precmin,
@@ -62,13 +62,14 @@ class Platillo {
   Future<bool> registra(String token) async {
     try {
       final respuesta = await http.Client()
-          .post(Uri.http('192.168.8.5:5000', '/api/res/platillos/add', {
-            'api_token': "1",
-            'nombre': this.nombre,
-            'descr': this.descripcion,
-            'precio': this.precio.toString(),
-            'cat': this.categoria
-          }))
+          .post(Uri.http('192.168.43.145:5000', '/api/res/platillos/add'),
+              body: jsonEncode(<String, String>{
+                'api_token': token,
+                'nombre': this.nombre,
+                'descr': this.descripcion,
+                'precio': this.precio.toString(),
+                'cat': this.categoria,
+              }))
           .timeout(Duration(seconds: 5));
 
       print("RESPUESTA " + respuesta.body);
@@ -93,7 +94,7 @@ class PrecioMax {
   static Future<List<PrecioMax>> leeMax(String id) async {
     try {
       final valMax = await http.Client()
-          .get(Uri.http('192.168.8.5:5000', '/api/res/platillos/preciomax',
+          .get(Uri.http('192.168.43.145:5000', '/api/res/platillos/preciomax',
               {'rest_id': '1'}))
           .timeout(Duration(seconds: 5));
 

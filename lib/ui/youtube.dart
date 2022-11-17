@@ -11,12 +11,12 @@ class DemoApp extends StatefulWidget {
 class _DemoAppState extends State<DemoApp> {
   static String key = "AIzaSyA6VwKkpxbpZuLYuQXlSeENH-Em1z05tfQ";
   String busqueda = "Comida Ocosingo chiapas";
+  // String query = busqueda;
   YoutubeAPI youtube = YoutubeAPI(key);
   List<YouTubeVideo> videoResult = [];
 
   Future<void> callAPI() async {
-    String query = busqueda;
-    videoResult = await youtube.search(query,
+    videoResult = await youtube.search(busqueda,
         order: 'relevance', videoDuration: 'any', type: "Video");
     videoResult = await youtube.nextPage();
     setState(() {});
@@ -56,8 +56,9 @@ class _DemoAppState extends State<DemoApp> {
               labelText: "Buscar",
               icon: IconButton(
                 onPressed: () {
-                  callAPI();
-                  // setState(() {});
+                  setState(() {
+                    callAPI();
+                  });
                   print(busqueda);
                 },
                 icon: Icon(Icons.search),

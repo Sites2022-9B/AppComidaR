@@ -8,6 +8,7 @@ class Datos {
 
   static Future<String?> leeToken() async {
     SharedPreferences pref = await SharedPreferences.getInstance();
+    print("token" + pref.getString('token').toString());
     return pref.getString('token');
   }
 }

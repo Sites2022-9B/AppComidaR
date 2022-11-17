@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:practica_1/model/db.dart';
 import 'package:practica_1/model/usuario.dart';
+import 'package:practica_1/ui/climascreen.dart';
 import 'package:practica_1/ui/welcome.dart';
 import 'package:flutter/material.dart';
 
@@ -11,6 +12,11 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
+  Future<bool> _recuperaToken() async {
+    String? token = await Datos.leeToken();
+    return Usuario.validaToken(token!);
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -18,7 +24,20 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'COMIDAS'),
+      home: const MainScreen(),
+      // home: FutureBuilder(
+      //   future: _recuperaToken(),
+      //   builder: (context, AsyncSnapshot<bool> snapshot) {
+      //     if (snapshot.hasData) {
+      //       bool valido = snapshot.data!;
+      //       return valido
+      //           ? const Welcome(title: 'COMIDAS')
+      //           : const MyHomePage(title: 'COMIDAS');
+      //     } else {
+      //       return CircularProgressIndicator();
+      //     }
+      //   },
+      // ),
     );
   }
 }

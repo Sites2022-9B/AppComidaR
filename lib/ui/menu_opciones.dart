@@ -1,3 +1,4 @@
+import 'package:practica_1/ui/climascreen.dart';
 import 'package:practica_1/ui/platillos.dart';
 import 'package:practica_1/ui/map.dart';
 import 'package:flutter/material.dart';
@@ -71,6 +72,20 @@ List<Widget> _opciones(BuildContext context) {
         context,
         MaterialPageRoute(
           builder: (context) => DemoApp(),
+        ),
+      );
+    },
+  ));
+
+  opc.add(ListTile(
+    leading: Icon(Icons.wb_sunny, color: Colors.white),
+    title: Text('Clima', style: TextStyle(fontSize: 20, color: Colors.white)),
+    onTap: () {
+      Navigator.of(context).pop();
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => MainScreen(),
         ),
       );
     },
