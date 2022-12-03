@@ -39,6 +39,9 @@ dependencies:
   google_maps_flutter: ^2.2.1
   youtube_api: ^1.0.4
   url_launcher: ^6.0.15
+  raygun4flutter: ^1.2.3
+  image_picker: ^0.8.6
+  geolocator: ^8.2.1
 
 dev_dependencies:
   flutter_test:

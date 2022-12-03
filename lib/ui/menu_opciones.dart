@@ -1,3 +1,4 @@
+import 'package:practica_1/ui/camera.dart';
 import 'package:practica_1/ui/climascreen.dart';
 import 'package:practica_1/ui/platillos.dart';
 import 'package:practica_1/ui/map.dart';
@@ -86,6 +87,21 @@ List<Widget> _opciones(BuildContext context) {
         context,
         MaterialPageRoute(
           builder: (context) => MainScreen(),
+        ),
+      );
+    },
+  ));
+
+  opc.add(ListTile(
+    leading: Icon(Icons.add_photo_alternate, color: Colors.white),
+    title: Text('Capturar Imagen',
+        style: TextStyle(fontSize: 20, color: Colors.white)),
+    onTap: () {
+      Navigator.of(context).pop();
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => Imagen(),
         ),
       );
     },

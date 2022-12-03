@@ -1,12 +1,18 @@
 import 'dart:convert';
 import 'package:practica_1/model/db.dart';
 import 'package:practica_1/model/usuario.dart';
+import 'package:practica_1/ui/camera.dart';
 import 'package:practica_1/ui/climascreen.dart';
 import 'package:practica_1/ui/welcome.dart';
 import 'package:flutter/material.dart';
+import 'package:raygun4flutter/raygun4flutter.dart';
 
 void main() {
   runApp(const MyApp());
+  Raygun.init(apiKey: 'HbJUz3Avt25xwXCJRPhA');
+  (Object error, StackTrace stackTrace) {
+    Raygun.sendException(error: error, stackTrace: stackTrace);
+  };
 }
 
 class MyApp extends StatelessWidget {
@@ -24,7 +30,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MainScreen(),
+      home: Imagen(),
       // home: FutureBuilder(
       //   future: _recuperaToken(),
       //   builder: (context, AsyncSnapshot<bool> snapshot) {
